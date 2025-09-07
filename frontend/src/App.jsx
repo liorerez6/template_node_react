@@ -1,16 +1,16 @@
 import React from "react";
-import Layout from "./components/Layout.jsx";
-import PingPanel from "./components/PingPanel.jsx";
-import EchoForm from "./components/EchoForm.jsx";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Health from "./pages/Health";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (
-    <Layout>
-      <div className="space-y-6">
-        <PingPanel />
-        <EchoForm />
-      </div>
-    </Layout>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/health" element={<Health />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 };
 

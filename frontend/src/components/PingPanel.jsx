@@ -1,21 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { pingAction } from "../store/actions/healthActions";
+import { selectPing } from "../store/selectors/healthSelectors";
 
 const PingPanel = () => {
-  const [result, setResult] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+  const { data, loading, error } = useSelector(selectPing);
 
-  const onPing = async () => {
-    try {
-      setLoading(true);
-      setResult(null);
-      const res = await fetch("/api/health/ping");
-      const data = await res.json();
-      setResult(data);
-    } catch (e) {
-      setResult({ ok: false, error: e?.message || "Ping failed" });
-    } finally {
-      setLoading(false);
-    }
+  const onPing = () => {
+    dispatch(pingAction());
   };
 
   return (
@@ -33,7 +26,13 @@ const PingPanel = () => {
 
       <div className="mt-3 rounded-lg bg-gray-50 p-3 text-sm">
         <pre className="whitespace-pre-wrap break-words">
-          {result ? JSON.stringify(result, null, 2) : "No response yet."}
+          {loading
+            ? "Loading..."
+            : error
+            ? JSON.stringify({ ok: false, error }, null, 2)
+            : data
+            ? JSON.stringify(data, null, 2)
+            : "No response yet."}
         </pre>
       </div>
     </section>
