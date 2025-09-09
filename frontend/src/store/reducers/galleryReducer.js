@@ -1,9 +1,9 @@
 import { GALLERY_INIT, GALLERY_SET_QUERY } from "../actions/galleryActions";
 
 const initialState = {
-  items: [],     // כל התמונות
-  query: "",     // מחרוזת חיפוש
-  filtered: [],  // תוצאות מסוננות
+  items: [],     
+  query: "",     
+  filtered: [],  
 };
 
 const normalize = (s) => (s || "").toString().toLowerCase().trim();
