@@ -1,8 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const PictureCard = ({ picture }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/picture/${picture.id}`);
+  };
+
   return (
-    <div className="bg-white rounded-lg shadow hover:shadow-md transition">
+    <div 
+      className="bg-white rounded-lg shadow hover:shadow-md transition cursor-pointer"
+      onClick={handleClick}
+    >
       <div className="aspect-[3/2] w-full overflow-hidden rounded-t-lg bg-gray-100">
         <img
           src={picture.imageUrl}
