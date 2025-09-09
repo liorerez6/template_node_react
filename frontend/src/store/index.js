@@ -1,9 +1,15 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
-import {thunk} from "redux-thunk";
+import { thunk } from "redux-thunk";
+
+// קיימים אצלך
 import healthReducer from "./reducers/healthReducer";
 
+// חדש לגלריה
+import galleryReducer from "./reducers/galleryReducer";
+
 const rootReducer = combineReducers({
-  health: healthReducer,
+  health: healthReducer,   // אם לא צריך – אפשר להסיר בהמשך
+  gallery: galleryReducer, // הוספה לגלריה
 });
 
 const composeEnhancers =

@@ -1,15 +1,15 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Health from "./pages/Health";
-import NotFound from "./pages/NotFound";
+import { Routes, Route, Navigate } from "react-router-dom";
+
+import GalleryPage from "./features/gallery/pages/GalleryPage";
+import PictureDetailPage from "./features/picture/pages/PictureDetailPage.jsx";
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/health" element={<Health />} />
-      <Route path="*" element={<NotFound />} />
+      <Route path="/" element={<GalleryPage />} />
+      <Route path="/picture/:id" element={<PictureDetailPage />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 };
