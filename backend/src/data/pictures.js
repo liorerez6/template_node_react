@@ -1,4 +1,3 @@
-// דאטה קשיח זהה (או מקביל) לזה שב-frontend/src/features/gallery/data/pictures.js
 module.exports = [
   {
     id: "p-001",

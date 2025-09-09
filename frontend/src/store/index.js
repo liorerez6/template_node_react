@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { thunk } from "redux-thunk";
 import galleryReducer from "./reducers/galleryReducer";
-import chatReducer from "./reducers/chatReducer"; // ← חדש
+import chatReducer from "./reducers/chatReducer"; 
 
 const rootReducer = combineReducers({
   gallery: galleryReducer,

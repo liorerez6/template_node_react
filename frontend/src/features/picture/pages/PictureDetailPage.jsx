@@ -15,7 +15,6 @@ const PictureDetailPage = () => {
     if (foundPicture) {
       setPicture(foundPicture);
     } else if (pictures.length > 0) {
-      // אם לא נמצאה התמונה ויש תמונות, חזור לגלריה
       navigate("/");
     }
   }, [id, pictures, navigate]);
@@ -38,7 +37,6 @@ const PictureDetailPage = () => {
       </button>
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Picture Details - Left Side */}
         <div className="lg:col-span-2">
           <div className="bg-white rounded-lg shadow overflow-hidden">
             <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100">
@@ -56,7 +54,6 @@ const PictureDetailPage = () => {
           </div>
         </div>
 
-        {/* Chat Interface - Right Side */}
         <div className="lg:col-span-1">
           <ChatInterface pictureId={picture.id} />
         </div>

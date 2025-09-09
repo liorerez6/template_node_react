@@ -46,7 +46,6 @@ const ChatInterface = ({ pictureId }) => {
         </div>
       </div>
       
-      {/* Messages Area */}
       <div className="flex-1 p-4 overflow-y-auto min-h-[400px] max-h-[600px]">
         {messages.length === 0 ? (
           <div className="text-center text-gray-500">
@@ -67,7 +66,6 @@ const ChatInterface = ({ pictureId }) => {
         )}
       </div>
 
-      {/* Input Area */}
       <div className="p-4 border-t">
         <form onSubmit={handleSubmit}>
           <div className="flex gap-2">
